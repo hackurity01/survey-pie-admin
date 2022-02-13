@@ -1,8 +1,9 @@
 import { Layout, Menu } from 'antd';
+import { Link } from 'react-router-dom';
 
 const { Header, Content, Sider } = Layout;
 
-function MainLayout({ children }) {
+function MainLayout({ selectedKeys, children }) {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider>
@@ -14,8 +15,10 @@ function MainLayout({ children }) {
             background: 'rgba(255, 255, 255, 0.3)',
           }}
         />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1">설문조사 관리</Menu.Item>
+        <Menu theme="dark" selectedKeys={selectedKeys} mode="inline">
+          <Menu.Item key="list">
+            <Link to="/list">설문조사 관리</Link>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout>
